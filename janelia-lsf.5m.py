@@ -45,7 +45,7 @@ def bitbar(grouped_jobs):
             print "--%s %s" % (job["JOBID"], job["JOB_NAME"])
 
 
-process = Popen('ssh login1.int.janelia.org "bjobs -a"', shell=True, stdout=PIPE)
+process = Popen('ssh -o ConnectTimeout=1 login1.int.janelia.org "bjobs -a"', shell=True, stdout=PIPE)
 output = process.stdout.read()
 
 if process.wait() == 0:
